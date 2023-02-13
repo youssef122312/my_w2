@@ -1,0 +1,1880 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+:root{
+    --fristcolor:#3a6cf4;
+    --scndcolor:white;
+    --thcolor:#171a1c;
+    --padding:8%;
+    --backcolor1:#171a1c;
+    --aboutcolor:#22282a;
+    --backcolor2:rgb(255, 75, 4);
+    --textcolor1:rgb(74, 74, 250);
+    --textcolor2:crimson;
+}
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box; 
+}
+
+::-webkit-scrollbar{
+    width:0;
+}
+
+#scrollpath{
+    position: fixed;
+    top:0;
+    right:0;
+    width:10px;
+    height:100%;
+    background-color: rgb(255,255,255,0.05);
+    z-index: 4326;
+    color: #636363;
+}
+
+#progressbar{
+    position: fixed;
+    top:0;
+    right:0;
+    width:10px;
+    border-radius: 6px;
+    background: linear-gradient(to top, #008aff,#00ffe7);
+    animation: scroll 4s linear infinite;
+    z-index: 4326;
+}
+
+@keyframes scroll{
+    0%,100%{
+        filter: hue-rotate(0deg);
+    }
+    50%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+#progressbar::before{
+    content: '';
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    background:linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(10px);
+}
+
+#progressbar::after{
+    content: '';
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    background:linear-gradient(to top, #008aff,#00ffe7);
+    filter: blur(30px);
+}
+
+html{
+    font-family: 'Poppins',Arial, sans-serif;
+    font-size: 16px;
+    color: var(--scndcolor);
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+
+body{
+   background-color: var(--backcolor2);
+   width: 100%;
+   height: 100%;
+}
+
+.home{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--backcolor1);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.h2{
+    color:var(--textcolor2);
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+span{
+    color:var(--textcolor2);
+}
+
+nav{
+    padding-top: 2.8rem;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    
+}
+
+nav ul{
+    margin-right: 1rem;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left:2rem;
+    
+}
+nav ul li a{
+    color:var(--scndcolor);
+    text-decoration: none;
+    transition: 0.4s ;
+    padding:.5rem;
+}
+
+nav ul li a:hover{
+    color:var(--textcolor2);
+}
+
+.theme{
+    width: 60px;
+    height: 60px;
+    margin-right:-50px;
+    background-color:rgba(0, 0, 0, 0.0);
+    border: none;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------ */
+/* ---------------------------------white mode settings-------------------- */
+body.light .content, body.light nav{
+    background: var(--backcolor2);
+    
+}
+
+body.light nav ul li a
+{
+    color: black;
+    transition: .4s;
+}
+
+body.light nav ul li a:hover{
+    color: darkblue;
+    transition:1s ;
+    background-color:#fff;
+    border-radius: 20px;
+    font-weight: 800;
+}
+
+body.light .photo #pho{
+    box-shadow:0px 0px 30px 15px rgb(245, 125, 56);
+}
+
+body.light .about{
+    background:rgb(245, 125, 56) ;
+}
+
+body.light .myskills{
+    background: var(--backcolor2);
+    color:#000;
+}
+
+body.light .myskills span{
+    color:#008aff;
+}
+
+body.light .projects{
+    background: rgb(245, 125, 56);
+    color: #000;
+}
+
+body.light .projects .p1{
+    color: #000;
+}
+
+.toggelclass
+{
+    position: absolute;
+    top:20px;
+    right:150px;
+    width: 20px;
+    padding-left: 20px;
+    height: 20px;
+    font-size: 1rem;
+    border-radius: 50%;
+    background: #d1dae3;
+    color:#d1dae3 ;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    z-index: 0;
+}
+
+.toggelclass::before
+{
+    left: 25px;
+    position: absolute;
+    content: 'light mode';
+    white-space: nowrap;
+}
+
+body.light .toggelclass
+{
+    background: #091921;
+    color:#091921;
+}
+
+body.light .toggelclass::before
+{
+    content: 'dark mode';
+    white-space: nowrap;
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+.content{
+    flex-grow: 1;
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content .texts{
+    width: 40%;
+    
+}
+
+.content .texts h4{
+    color: var(--textcolor1);
+    font-size: 2rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 500;
+    font-weight: 700;
+}
+.imcn{
+    color:crimson;
+    width: 20px;
+    margin-bottom: 22px;
+}
+
+.content .texts span{
+    color:var(--textcolor2);
+    font-size: 2.5rem; ;
+}
+
+.content .texts .h4{
+    color: var(--textcolor1);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.social{
+    margin-top: 3rem;
+    margin: 2rem;
+}
+.social img{
+    width: 2rem;
+    margin-right: 2rem;
+    transition: .4s;
+}
+
+.social img:hover{
+    transform: translateY(-10%);
+    transform: scale(1.25);
+}
+
+.home .photo{
+    width: 45%;
+    height: 13rem;
+    position: relative;
+}
+
+
+.home .photo img{
+    position:absolute;
+    bottom: 40px;
+    height: 100%;
+    left: 40%;
+    border-radius: 25px;
+    box-shadow: 0px 0px 20px 15px rgb(0, 0, 0);
+    transition: 0.5s ;
+}
+
+.home .photo img:hover{
+    transform: translateY(-10%);
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* ----------------------------------about me section--------------------------------------- */
+/* ----------------------------------------------------------------------------------------- */
+
+
+.about{
+    background-color: var(--aboutcolor);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.about .imgs{
+    width: 35%;
+    padding:1.5rem;
+}
+
+.about .imgs img{
+    width: 90%;
+    transition: .5s;
+}
+.about .imgs img:hover{
+    transform: translateY(-10%);
+}
+
+.about .aboutme{
+    width: 40%;
+    display:block;
+    justify-content: center;
+}
+
+.about .aboutme .h1{
+    font-size: 2rem;
+    padding-left: 30%;
+    padding-bottom: .5rem;
+
+}
+
+.about .aboutme p{
+    letter-spacing: 1px;
+    color: var(--fristcolor);
+}
+.myskills{
+    background-color: var(--backcolor1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.myskills .word .h1{
+    font-size: 2rem;
+    padding-left: 33%;
+    padding-bottom: 5rem;
+}
+.myskills .imgs{
+    width: 40%;
+    padding:1rem;
+    cursor: pointer;
+    
+}
+
+.myskills .imgs img:hover{
+    transform: translateY(-10%);
+}
+
+.myskills .imgs img{
+    width: 90%;
+    transition: .5s;
+}
+.myskills .skills{
+    padding-left:2rem ;
+}
+.myskills .word{
+    width: 40%;
+}
+.myskills .skills img{
+    width: 5rem;
+    padding-left: .8rem;
+    transition: .5s;
+}
+
+
+.myskills .skills img:hover{
+    transform: translateY(-10%);
+}
+
+
+.myskills .d{
+    width: 100%;
+    padding-left:3.1rem;
+    font-size: 1.3rem;
+    color: var(--fristcolor);
+}
+/* -------------------------------------------------------------------------------- */
+/* --------------------------------projects-section-------------------------------- */
+/* -------------------------------------------------------------------------------- */
+
+.projects{
+    background-color: var(--aboutcolor);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 110vh;
+}
+
+.projects .top{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.projects .top h1{
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 29%;
+    align-self: center;
+}
+
+.projects .top a{
+    color: rgb(0, 132, 255);
+    text-decoration: none;
+    margin: 5px;
+    margin-left: 15px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}    
+
+.projects .top a img{
+    color: rgb(0, 132, 255);
+    transform: rotate(180deg);
+    width: 20px;
+    margin-left: 5px;
+}    
+
+.projects .apps{
+    display: flex;
+    align-items: center;
+}    
+
+.projects .apps .calculator{
+    width: 28vw;
+    height: 80vh;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin-left: 3.4vw;
+    background: linear-gradient( 45deg,#008aff,#00ffe7);
+
+}    
+
+.projects .apps .calculator img {
+    margin-top: 1rem;
+    width: 20vw;
+    border-radius: 10px;
+    margin-left: 2.4rem;
+}    
+
+.projects .apps .calculator p{
+    list-style: none;
+    margin: 1.5rem;
+    text-decoration: double;
+}    
+
+
+.projects .apps .ydownloader{
+    width: 28vw;
+    height: 80vh;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin-left: 2.7vw;
+    background: linear-gradient( 45deg,#008aff,#00ffe7);
+
+}    
+
+.projects .apps .ydownloader img {
+    width: 24vw;
+    border-radius: 10px;
+    margin: 1rem;
+}    
+
+.projects .apps .ydownloader p{
+    list-style: none;
+    margin: 1.5rem;
+    text-decoration: double;
+}    
+
+
+
+.projects .apps .awebsite{
+    width: 28vw;
+    height: 80vh;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin-left: 2.7vw;
+    background: linear-gradient( 45deg,#008aff,#00ffe7);
+
+}    
+
+.projects .apps .awebsite img {
+    width: 24vw;
+    border-radius: 10px;
+    margin: 1rem;
+    margin-top: 2rem;
+}    
+
+.projects .apps .awebsite p{
+    list-style: none;
+    margin: 1.5rem;
+    text-decoration: double;
+}    
+
+/* --------------------------------------------------------------------------------- */
+/* ----------------------------contact section-------------------------------------- */
+
+.titl{
+    margin-top: 20px;
+    width: 15rem;
+}
+
+.contact{
+    height: 120vh;
+    background-color:var(--backcolor1);
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    text-align: center;
+
+}
+
+body.light .contact{
+    background-color:var(--backcolor2);
+}
+
+.contact form{
+    width: 80%;
+    border-radius: 5px 3rem 5px 3rem ;
+    background: linear-gradient(to top, #0088ff9a,#00ffe58a);
+    color: #000;
+    box-shadow: 0px 0px 20px 15px rgba(0, 0, 0, 0.253);
+}
+
+.contact form h2{
+    font-family: 'Caveat';
+}
+
+.contact img{
+    margin: 1rem;
+    height: 80vh;
+    transform: translateY(20%);
+    bottom: -5rem;
+    width: 40%;
+    transition: 0.8s;
+}
+
+.contact img:hover{
+    transform: translateY(10%);
+}
+
+.contact .inputs{
+    margin: 3rem;
+    margin-top: 10rem;
+    width:40%;
+    background-image: url(https://media.istockphoto.com/id/638820876/photo/macro-close-up-of-different-color-oil-paint-colorful-acrylic.jpg?s=612x612&w=0&k=20&c=oDBblgFGoaU5K0CyJowQeYkVf5W25uRAqPnS6fG07Uc=);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3rem 5px 3rem 5px;
+    height: 80vh;
+}
+
+.contact .inputs .inputbox{
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+
+}
+
+.contact .inputs .inputbox input,
+.contact .inputs .inputbox textarea{
+    width: 90%;
+    padding: 5px 0;
+    margin: 10px 0;
+    border:none;
+    border-radius: 10px;
+    border-bottom: 2px solid #091921;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    resize: none;
+}
+
+.contact .inputs .inputbox span{
+    position: absolute;
+    left: 5%;
+    color: #000;
+    padding: 5px 0;
+    margin: 10px 0;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+
+.contact .inputs .inputbox input:focus ~ span,
+.contact .inputs .inputbox input:valid ~ span,
+.contact .inputs .inputbox textarea:focus ~ span,
+.contact .inputs .inputbox textarea:valid ~ span{
+    color: #4e043e;
+    transform: translateY(-20px);
+    font-size: 0.8rem;
+    opacity: 1;
+}
+
+
+
+.contact .inputs .inputbox .submit{
+    border:none;
+    padding:1rem;
+    text-align: center;
+    background-color: #00ffe7;
+    cursor: pointer;
+    margin-top: 3rem;
+    border-radius: 10px;
+}
+
+.contact .inputs .inputbox .submit:hover{
+    background-color: #8bfff3;
+}
+
+
+/* ---------------------------------------------------------------------------------*/
+/* ----------------------------footer-section-------------------------------------- */
+/* -------------------------------------------------------------------------------- */
+footer{
+    background-color: var(--aboutcolor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.footer{
+    font-size: 1rem;
+    letter-spacing: 1px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.footer .h7{
+    padding-left:37% ;
+    margin-bottom: 2rem;
+}
+
+.footer .klam{
+    margin-left: 2rem;
+    width:90%;
+}
+
+.footer .p1{
+    padding-left:35%;
+    color: #3a6cf4;
+    margin-bottom: 1rem;
+}
+
+.footer .p2{
+    color:crimson;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* -----------------------------------menu-------------------------------------- */
+
+#menu{
+    display: none;
+    background:none;
+    position: relative;
+    appearance: none;
+    border:none;
+    cursor:pointer;
+    user-select: none;
+    outline: none;
+    z-index: 1000000000000000000;
+}
+
+#menu span{
+    width: 30px;
+    height: 4px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    background-color: #fff;
+    border-radius: 6px;
+    transform-origin: 0 0;
+    transition: 0.4s;
+    margin-bottom: 5px;
+    z-index: 100000000;
+}
+
+#menu.is-active span:nth-child(1){
+    transform: translate(0px, -2px) rotate(45deg);
+}
+
+#menu.is-active span:nth-child(2){
+    opacity: 0;
+    transform: translateX(15px);
+}
+
+#menu.is-active span:nth-child(3){
+    transform: translate(-3px, 3px) rotate(-45deg);
+}
+
+#menu.is-active span{
+    background-color: var(--textcolor2);
+}
+
+
+
+/* ================================================================================ */
+/* ---------------------------media quaries---------------------------------------- */
+
+@media (max-width:325px)  {
+    #menu{
+        display: block;
+        margin-left:-30rem;
+        z-index: 100000;
+    }
+
+    #projects{
+        height: 80rem;
+    }
+
+    .projects .apps{
+        flex-direction: column;
+    }
+
+    .projects .apps .calculator{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .calculator img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    .projects .apps .awebsite{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .awebsite img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    .projects .apps .ydownloader{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .ydownloader img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    nav{
+        position: fixed;
+        background: #171a1c;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 82px;
+        padding-top:0;
+        z-index: 10000;
+    }
+
+
+    nav ul{
+        display:none;
+        position: fixed;
+        width: 100vw;
+        opacity: cover;
+        text-transform: uppercase;
+        top:0;
+        left:0;
+        height: 100%;
+        background: var(--aboutcolor);
+        z-index: 11;
+    }
+
+    nav ul li{
+        display: block;
+        text-align: center;
+        margin:4rem;
+    }
+
+    nav ul.is-active{
+        display:block;
+    }
+
+    nav span{
+        font-size: 1.6rem;
+        margin-left:-15px;
+    }
+    nav .imcn{
+        transform: translate(-40%, 50%);
+    }
+
+    .toggelclass{
+        font-size: 0.8rem;
+        transform: translateY(100%);
+    }
+
+    .home .texts{
+        margin-top:1.5rem;
+    }
+
+    .home .texts .q{
+        margin-left: 0.5rem;
+        width: 100%;
+        font-size: 1.5rem;
+        
+    }
+
+    .home .texts .h4{
+        font-size: 1rem;
+    }
+
+    .home .texts .social{
+        width:100%;
+        margin-left: 1.2rem;
+    }
+
+    .home .texts .social .icons, .home .texts .social img{
+        width:10%;
+
+    }
+
+    .home .texts span{
+        font-size: 2rem;
+    }
+
+    .home .texts{
+        width:100%;
+    }
+
+    .photo{
+        display: none;
+    }
+    .about .aboutme{
+        width:100%;
+    }
+
+    .about .aboutme .h1{
+        margin-left: -5rem;
+    }
+
+    .about .aboutimg{
+        display: none;
+    }
+
+    .about .aboutme .w{
+        width:100%;
+        margin-left: -3rem;
+        padding: 0;
+    }
+
+    .myskills{
+        width: 100%;
+    }
+
+    .myskills .word{
+        width: 100%;
+        margin-left:2rem;
+    }
+
+    .myskills .skills{
+        margin-left:-3rem;
+    }
+
+    .myskills .skills img{
+        
+        width:3rem;
+    }
+
+    .myskills .imgs{
+        display: none;
+    }
+
+    .myskills .h1{
+        margin-left:-2rem;
+    }
+
+    .myskills .d{
+        width:100%;
+        margin-left: -2rem;
+    }
+
+    .projects {
+        height: 110vh;
+    }
+
+    .projects .cla{
+        height: 25rem;
+        display: block;
+    }
+
+    .projects .cla p {
+        height: 10px;
+        width: 84%;
+        margin-top: 1rem;
+        padding-left: 1px;
+    }
+
+    .projects .cla .calclatorimg{
+        width: 200px;
+    }
+
+
+    .projects .cla .buttom{
+        bottom:-84rem;
+        left: 9.5rem;
+    }
+
+    .projects .circle, .projects .circle1{
+        display: none;
+    }
+
+    #footer{
+        height: 15rem;
+        overflow: hidden;
+    }
+
+    footer .h7{
+        font-size: 1rem;
+        width:100%;
+        transform: translate(-1%,30%);
+    }
+
+    footer .klam{
+        margin-left: 6rem;
+        font-size: 0.8rem;
+        width: 16rem;
+    }
+
+    footer .p4 .p1{
+        margin-top: 1rem;
+        width: 30rem;
+        margin-left: -3rem;
+    }
+
+    .projects #calclat .websiteimg, .projects #calclat .websiteimg1, .projects #cla{
+        display: none;
+    }
+
+    .projects .buttom{
+        display: none;
+    }
+
+    .contact{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact .titl{
+        align-self: center;
+    }
+    .contact .conimg{
+       display: none;
+    }
+    .contact .inputs{
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .contact .inputs .inputbox{
+        width: 100%;
+    }
+
+    footer{
+        background-color: var(--aboutcolor);
+    }
+}
+
+@media (min-width:326px) and (max-width:600px){
+    #menu{
+        display: block;
+        margin-left:-30rem;
+        z-index: 100000;
+    }
+
+    nav{
+        position: fixed;
+        background: #171a1c;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 82px;
+        padding-top:0;
+        z-index: 10000;
+    }
+
+
+    nav ul{
+        display:none;
+        position: fixed;
+        width: 100vw;
+        opacity: cover;
+        text-transform: uppercase;
+        top:0;
+        left:0;
+        height: 100%;
+        background: var(--aboutcolor);
+        z-index: 11;
+    }
+
+    nav ul li{
+        display: block;
+        text-align: center;
+        margin:4rem;
+    }
+
+    nav ul.is-active{
+        display:block;
+    }
+
+    nav span{
+        font-size: 1.6rem;
+        margin-left:-15px;
+    }
+    nav .imcn{
+        transform: translate(-40%, 50%);
+    }
+
+    .toggelclass{
+        font-size: 0.8rem;
+        transform: translateY(100%);
+    }
+
+    .home .texts{
+        margin-top:1.5rem;
+    }
+
+    .home .texts .q{
+        margin-left: 0.5rem;
+        width: 100%;
+        font-size: 1.5rem;
+        
+    }
+
+    .home .texts .h4{
+        font-size: 1rem;
+    }
+
+    .home .texts .social{
+        width:100%;
+        margin-left: 1.2rem;
+    }
+
+    .home .texts .social .icons, .home .texts .social img{
+        width:10%;
+
+    }
+
+    .home .texts span{
+        font-size: 2rem;
+    }
+
+    .home .texts{
+        width:100%;
+    }
+
+    .photo{
+        display: none;
+    }
+
+    .about{
+        border-radius: 4rem;
+    }
+
+    .about .aboutme{
+        width:100%;
+    }
+
+    .about .aboutme .h1{
+        margin-left: -5rem;
+    }
+
+    .about .aboutimg{
+        display: none;
+    }
+
+    .about .aboutme .w{
+        width:100%;
+        margin-left: -3rem;
+        padding: 0;
+    }
+
+    .myskills{
+        width: 100%;
+    }
+
+    .myskills .word{
+        width: 100%;
+        /* margin-left:2rem; */
+    }
+
+    .myskills .skills{
+        margin-left: 3%;
+    }
+
+    .myskills .skills img{
+        width:3rem;
+    }
+
+    .myskills .imgs{
+        display: none;
+    }
+
+    .myskills .h1{
+        margin-left: -0.5rem;
+    }
+
+    .myskills .d{
+        width:100%;
+        margin-left: -2rem;
+    }
+
+    #projects{
+        height: 86rem;
+    }
+
+    .projects .top h1{
+        font-size: 1.5rem;
+        margin-left: 4.5rem;
+        width: 50%;
+        margin-top: 2rem;
+
+    }
+
+    .projects .top a{
+        font-size: 1rem;
+        width: 6rem;
+    }
+
+    .projects .apps{
+        flex-direction: column;
+       
+    }
+
+    .projects .apps .calculator{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .calculator img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    .projects .apps .awebsite{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+        padding-bottom: -1rem;
+    }
+    
+    .projects .apps .awebsite img{
+        width: 90%;
+        margin-left: 10px;
+       
+    }
+
+    .projects .apps .ydownloader{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .ydownloader img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    #footer{
+        height: 15rem;
+        overflow: hidden;
+    }
+
+    footer .h7{
+        font-size: 1rem;
+        width:fit-content;
+        transform: translate(-1%,30%);
+    }
+
+    footer .klam{
+        margin-left: 6rem;
+        font-size: 0.8rem;
+        width: 16rem;
+    }
+
+    footer .p4 .p1{
+        margin-top: 1rem;
+        width: 30rem;
+        margin-left: -3rem;
+    }
+
+    .projects #calclat .websiteimg, .projects #calclat .websiteimg1, .projects #cla{
+        display: none;
+    }
+
+    .projects .buttom{
+        display: none;
+    }
+
+    .projects{
+        height: 70vh;
+        
+    }
+    .contact{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact .titl{
+        align-self: center;
+    }
+    .contact .conimg{
+       display: none;
+    }
+    .contact .inputs{
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .contact .inputs .inputbox{
+        width: 100%;
+    }
+
+    footer{
+        background-color: var(--aboutcolor);
+        left: -10rem;
+    }
+
+}
+
+@media (min-width:450px) and (max-width: 600px){
+    #menu{
+        display: block;
+        margin-left:-30rem;
+        z-index: 100000;
+    }
+
+    nav{
+        position: fixed;
+        background: #171a1c;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 82px;
+        padding-top:0;
+        z-index: 10000;
+    }
+
+
+    nav ul{
+        display:none;
+        position: fixed;
+        width: 100vw;
+        opacity: cover;
+        text-transform: uppercase;
+        top:0;
+        left:0;
+        height: 100%;
+        background: var(--aboutcolor);
+        z-index: 11;
+    }
+
+    nav ul li{
+        display: block;
+        text-align: center;
+        margin:4rem;
+    }
+
+    nav ul.is-active{
+        display:block;
+    }
+
+    nav span{
+        font-size: 1.6rem;
+        margin-left:-15px;
+    }
+    nav .imcn{
+        transform: translate(-40%, 50%);
+    }
+
+    .toggelclass{
+        font-size: 0.8rem;
+        transform: translateY(100%);
+        right:170px;
+    }
+
+    .home .texts{
+        margin-top:1.5rem;
+    }
+
+    .home .texts .q{
+        margin-left: 0.5rem;
+        width: 100%;
+        font-size: 1.5rem;
+        
+    }
+
+    .home .texts .h4{
+        font-size: 1rem;
+    }
+
+    .home .texts .social{
+        width:100%;
+        margin-left: 1.2rem;
+    }
+
+    .home .texts .social .icons, .home .texts .social img{
+        width:10%;
+
+    }
+
+    .home .texts span{
+        font-size: 2rem;
+    }
+
+    .home .texts{
+        width:100%;
+    }
+
+    .photo{
+        display: none;
+    }
+    .about .aboutme{
+        width:100%;
+    }
+
+    .about .aboutme .h1{
+        margin-left: -5rem;
+    }
+
+    .about .aboutimg{
+        display: none;
+    }
+
+    .about .aboutme .w{
+        width:100%;
+        margin-left: -3rem;
+        padding: 0;
+    }
+
+    .myskills{
+        width: 100%;
+    }
+
+    .myskills .word{
+        width: 100%;
+        margin-left:2rem;
+    }
+
+    .myskills .skills{
+        margin-left: 15%;
+    }
+
+    .myskills .skills img{
+        
+        width:3rem;
+    }
+
+    .myskills .imgs{
+        display: none;
+    }
+
+    .myskills .h1{
+        margin-left: 0rem;
+    }
+
+    .myskills .d{
+        width:100%;
+        margin-left: -2rem;
+    }
+
+
+    #projects{
+        height: fit-content;
+    }
+
+    .projects .apps{
+        flex-direction: column;
+    }
+
+    .projects .apps .calculator{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .calculator img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    .projects .apps .awebsite{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .awebsite img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    .projects .apps .ydownloader{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .ydownloader img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    #footer{
+        height: 15rem;
+        overflow: hidden;
+    }
+
+    footer .h7{
+        font-size: 1rem;
+        width:100%;
+        transform: translate(-1%,30%);
+    }
+
+    footer .klam{
+        margin-left: 6rem;
+        font-size: 0.8rem;
+        width: 16rem;
+    }
+
+    footer .p4 .p1{
+        margin-top: 1rem;
+        width: 30rem;
+        margin-left: -3rem;
+    }
+
+    .projects #calclat .websiteimg, .projects #calclat .websiteimg1, .projects #cla{
+        display: none;
+    }
+
+    .projects .buttom{
+        display: none;
+    }
+
+    .contact{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact .titl{
+        align-self: center;
+    }
+    .contact .conimg{
+       display: none;
+    }
+    .contact .inputs{
+        width: 90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+
+    .contact .inputs .inputbox{
+        width: 100%;
+    }
+
+
+    footer{
+        background-color: var(--backcolor1);
+    }
+}
+
+@media (min-width:601px) and (max-width: 900px){
+    #menu{
+        display: block;
+        margin-left:-30rem;
+        z-index: 100000;
+    }
+
+    nav{
+        position: fixed;
+        background: #171a1c;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 82px;
+        padding-top:0;
+        z-index: 10000;
+    }
+
+
+    nav ul{
+        display:none;
+        position: fixed;
+        width: 100vw;
+        opacity: cover;
+        text-transform: uppercase;
+        top:0;
+        left:0;
+        height: 100%;
+        background: var(--aboutcolor);
+        z-index: 11;
+    }
+
+    nav ul li{
+        display: block;
+        text-align: center;
+        margin:4rem;
+    }
+
+    nav ul.is-active{
+        display:block;
+    }
+
+    nav span{
+        font-size: 1.6rem;
+        margin-left:-15px;
+    }
+    nav .imcn{
+        transform: translate(-40%, 50%);
+    }
+
+    .toggelclass{
+        font-size: 0.8rem;
+        transform: translateY(100%);
+        right:200px;
+    }
+
+    .home .texts{
+        margin-top:1.5rem;
+    }
+
+    .home .texts .q{
+        margin-left: 0.5rem;
+        width: 100%;
+        font-size: 1.5rem;
+        
+    }
+
+    .home .texts .h4{
+        font-size: 1rem;
+    }
+
+    .home .texts .social{
+        width:100%;
+        margin-left: 1.2rem;
+    }
+
+    .home .texts .social .icons{
+        width:6%;
+    }
+
+    .home .texts span{
+        font-size: 2rem;
+    }
+
+    .home .texts{
+        width:100%;
+    }
+
+    .photo{
+        display: none;
+    }
+    .about .aboutme{
+        width:100%;
+    }
+
+    .about .aboutme .h1{
+        margin-left: -5rem;
+    }
+
+    .about .aboutimg{
+        display: none;
+    }
+
+    .about .aboutme .w{
+        width:100%;
+        margin-left: -5rem;
+    }
+
+    .myskills{
+        width: 100%;
+    }
+
+    .myskills .word{
+        width: 100%;
+        margin-left:2rem;
+    }
+
+    .myskills .skills{
+        margin-left: 25%;
+    }
+
+    .myskills .skills img{
+        
+        width:3rem;
+    }
+
+    .myskills .imgs{
+        display: none;
+    }
+
+    .myskills .h1{
+        margin-left: 5%;
+    }
+
+    .myskills .d{
+        width:100%;
+        margin-left: -2rem;
+    }
+
+    #projects{
+        height: fit-content;
+    }
+
+    .projects .apps{
+        flex-direction: column;
+    }
+
+    .projects .apps .calculator{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .calculator img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    .projects .apps .awebsite{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .awebsite img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    .projects .apps .ydownloader{
+        width: 90%;
+        height: fit-content;
+        margin-top: 1rem;
+    }
+    
+    .projects .apps .ydownloader img{
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    #footer{
+        height: 10rem;
+        overflow: hidden;
+    }
+
+    footer .h7{
+        font-size: 1rem;
+        width:100%;
+        transform: translate(-1%,30%);
+    }
+
+    footer .klam{
+        margin-left: 4rem;
+        font-size: 0.8rem;
+        width: 80%;
+    }
+
+    footer .p4 .p1{
+        margin-top: 1rem;
+        margin-left: -3rem;
+    }
+
+    .projects #calclat .websiteimg, .projects #calclat .websiteimg1, .projects #cla{
+        display: none;
+    }
+
+    .projects .buttom{
+        display: none;
+    }
+
+    .contact{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact .titl{
+        align-self: center;
+    }
+    .contact .conimg{
+       display: none;
+    }
+    .contact .inputs{
+        width: 90%;
+    }
+
+    .contact .inputs .inputbox{
+        width: 100%;
+    }
+
+    footer{
+        background-color: var(--aboutcolor);
+    }
+}
+
+
+@media (min-width:901px) and (max-width:1000px){
+    #menu{
+        display: block;
+        margin-left:-30rem;
+        z-index: 100000;
+    }
+
+    nav{
+        position: fixed;
+        background: #171a1c;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 82px;
+        padding-top:0;
+        z-index: 10000;
+    }
+
+
+    nav ul{
+        display:none;
+        position: fixed;
+        width: 100vw;
+        opacity: cover;
+        text-transform: uppercase;
+        top:0;
+        left:0;
+        height: 100%;
+        background: var(--aboutcolor);
+        z-index: 11;
+    }
+
+    nav ul li{
+        display: block;
+        text-align: center;
+        margin:4rem;
+    }
+
+    nav ul.is-active{
+        display:block;
+    }
+
+    nav span{
+        font-size: 1.6rem;
+        margin-left:-15px;
+    }
+    nav .imcn{
+        transform: translate(-40%, 50%);
+    }
+
+    .toggelclass{
+        font-size: 0.8rem;
+        transform: translateY(100%);
+        right:200px;
+    }
+
+    .home .texts{
+        margin-top:1.5rem;
+    }
+
+    .home .texts .q{
+        margin-left: 0.5rem;
+        width: 100%;
+        font-size: 1.5rem;
+        
+    }
+
+    .home .texts .h4{
+        font-size: 1rem;
+    }
+
+    .home .texts .social{
+        width:100%;
+        margin-left: 1.2rem;
+    }
+
+    .home .texts .social .icons, .home .texts .social img{
+        width:6%;
+    }
+
+    .home .texts span{
+        font-size: 2rem;
+    }
+
+    .home .texts{
+        width:100%;
+    }
+
+    .home .photo #pho{
+        width: 10rem;
+        height: auto;
+    }
+
+    .contact{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact .titl{
+        align-self: center;
+    }
+    .contact .conimg{
+       display: none;
+    }
+    .contact .inputs{
+        width: 90%;
+    }
+
+    .contact .inputs .inputbox{
+        width: 100%;
+    }
+}
+
+@media (min-width:1001px) and (max-width:1240px){
+    .contact{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact .titl{
+        align-self: center;
+    }
+    .contact .conimg{
+       display: none;
+    }
+    .contact .inputs{
+        width: 90%;
+    }
+}
