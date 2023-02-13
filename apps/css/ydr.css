@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient( 45deg,#008aff,#00ffe7);
+    display: flex;
+}
+
+.appname{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-left: 4rem;
+}
+
+.dbtn{
+    height: 2.5rem;
+    width:7rem;
+    margin-left: 4rem;
+    margin-top: 3rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000 ;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.dbtn a{
+    text-decoration: none;
+    color: #000;
+}
+
+.dbtn:hover{
+    background-color: #0053a0 ;
+}
+
+.appdesc{
+    width :75%;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    margin-left: 5rem;
+    margin-top: 4rem;
+}
+
+.back{
+    width: 4rem;
+    border-radius: 50%;
+}
+
+.back img{
+    width: 2rem;
+    margin: 2rem;
+    transition: 0.4s;
+}
+
+.calimg{
+    margin-top: 10rem;
+    margin-right: 4rem;
+    width: 401px;
+    height: 282px;
+    border-radius: 10px;
+}
+
+
+@media (max-width:325px) {
+    body{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+    .appname{
+        margin-left: 3rem;
+    }
+    .appdesc{
+        width: 80%;
+        margin-left: 2rem;
+    }
+    .dbtn{
+        margin-left: 6rem;
+    }
+    .calimg{
+        width: 95%;
+        margin: 0.5rem;
+        height: auto;
+    }
+}
+
+
+@media (min-width:326px) and (max-width:600px){
+    body{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+    .appname{
+        margin-left: 10%;
+    }
+    .appdesc{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .dbtn{
+        margin-left: 35%;
+    }
+    .calimg{
+        width: 96%;
+        margin: 2%;
+        margin-top: 4rem;
+        height: auto;
+    }
+}
+
+@media (min-width:601px) and (max-width: 900px){
+    body{
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+    .appname{
+        margin-left: 10%;
+    }
+    .appdesc{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .dbtn{
+        margin-left: 35%;
+    }
+    .calimg{
+        width: 96%;
+        margin: 2%;
+        margin-top: 4rem;
+        height: auto;
+    }
+}
